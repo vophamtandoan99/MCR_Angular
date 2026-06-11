@@ -1,0 +1,3 @@
+.tds-header {
+    background-color: rgba(var(--tds-color-neutral-100-light), var(--tw-bg-opacity, 1));
+}

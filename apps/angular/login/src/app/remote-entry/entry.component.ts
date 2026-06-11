@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, NxWelcomeComponent],
+  imports: [CommonModule, ReactiveFormsModule, LoginComponent],
   selector: 'app-login-entry',
-  template: `<app-nx-welcome></app-nx-welcome>`,
+  template: `<app-login></app-login>`,
 })
 export class RemoteEntryComponent {}

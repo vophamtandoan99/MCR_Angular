@@ -1,0 +1,107 @@
+{
+    "name": "freeblock",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/react/freeblock/src",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+        "build": {
+            "executor": "@nx/webpack:webpack",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "compiler": "babel",
+                "outputPath": "dist/apps/react/freeblock",
+                "index": "apps/react/freeblock/src/index.html",
+                "baseHref": "/",
+                "main": "apps/react/freeblock/src/main.ts",
+                "tsConfig": "apps/react/freeblock/tsconfig.app.json",
+                "assets": [
+                    "apps/react/freeblock/src/favicon.ico",
+                    "apps/react/freeblock/src/assets",
+                    {
+                        "glob": "**/*",
+                        "input": "libs/shared/assets",
+                        "output": "assets"
+                    }
+                ],
+                "styles": [
+                    "apps/react/freeblock/src/styles.scss",
+                    "node_modules/primereact/resources/themes/lara-light-teal/theme.css",
+                    "node_modules/primereact/resources/primereact.min.css",
+                    "node_modules/primeicons/primeicons.css"
+                ],
+                "scripts": [],
+                "customWebpackConfig": {
+                    "withReact": true,
+                    "path": "apps/react/freeblock/module-federation.config.ts"
+                },
+                "webpackConfig": "apps/react/freeblock/webpack.config.ts"
+            },
+            "configurations": {
+                "development": {
+                    "extractLicenses": false,
+                    "optimization": false,
+                    "sourceMap": true,
+                    "vendorChunk": true
+                },
+                "production": {
+                    "fileReplacements": [{
+                        "replace": "apps/react/freeblock/src/environments/environment.ts",
+                        "with": "apps/react/freeblock/src/environments/environment.prod.ts"
+                    }],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "extractLicenses": true,
+                    "vendorChunk": false,
+                    "webpackConfig": "apps/react/freeblock/webpack.config.prod.ts"
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nx/react:module-federation-dev-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "freeblock:build",
+                "hmr": true,
+                "port": 4203
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "freeblock:build:development"
+                },
+                "production": {
+                    "buildTarget": "freeblock:build:production",
+                    "hmr": false
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        },
+        "serve-static": {
+            "executor": "@nx/react:module-federation-static-server",
+            "defaultConfiguration": "production",
+            "options": {
+                "serveTarget": "freeblock:serve"
+            },
+            "configurations": {
+                "development": {
+                    "serveTarget": "freeblock:serve:development"
+                },
+                "production": {
+                    "serveTarget": "freeblock:serve:production"
+                }
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/react/freeblock/jest.config.ts"
+            }
+        }
+    }
+}

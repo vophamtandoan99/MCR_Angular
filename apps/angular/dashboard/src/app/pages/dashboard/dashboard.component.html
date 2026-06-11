@@ -1,0 +1,257 @@
+<div class="flex flex-col gap-4 p-4">
+  <div class="grid grid-cols-12 gap-4 justify-between">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 p-0">
+      <tds-card>
+        <tds-card-header>
+          <div class="w-full flex justify-between items-center gap-4">
+            <div class="flex flex-col gap-2">
+              <span class="block text-gray-500">Order</span>
+              <span class="text-xl">152</span>
+            </div>
+            <div
+              class="bg-red-200 rounded-md w-10 h-10 flex items-center justify-center"
+            >
+              <i class="tdsi-mobile-fill text-red-500 text-2xl"></i>
+            </div>
+          </div>
+        </tds-card-header>
+        <tds-card-content class="text-start">
+          <span class="text-red-500 font-blod mr-1">24 new</span>
+          <span>since last visit</span>
+        </tds-card-content>
+      </tds-card>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 p-0">
+      <tds-card>
+        <tds-card-header>
+          <div class="w-full flex justify-between items-center gap-4">
+            <div class="flex flex-col gap-2">
+              <span class="block text-gray-500">Revenue</span>
+              <span class="text-xl">$2.100</span>
+            </div>
+            <div
+              class="bg-red-200 rounded-md w-10 h-10 flex items-center justify-center"
+            >
+              <i class="tdsi-coin-line text-red-500 text-2xl"></i>
+            </div>
+          </div>
+        </tds-card-header>
+        <tds-card-content class="text-start">
+          <span class="text-red-500 font-blod mr-1">%52+</span>
+          <span>since last week</span>
+        </tds-card-content>
+      </tds-card>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 p-0">
+      <tds-card>
+        <tds-card-header>
+          <div class="w-full flex justify-between items-center gap-4">
+            <div class="flex flex-col gap-2">
+              <span class="block text-gray-500">Customers</span>
+              <span class="text-xl">28441</span>
+            </div>
+            <div
+              class="bg-red-200 rounded-md w-10 h-10 flex items-center justify-center"
+            >
+              <i class="tdsi-group-1-line text-red-500 text-2xl"></i>
+            </div>
+          </div>
+        </tds-card-header>
+        <tds-card-content class="text-start">
+          <span class="text-red-500 font-blod mr-1">520</span>
+          <span>newly registered</span>
+        </tds-card-content>
+      </tds-card>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 p-0">
+      <tds-card>
+        <tds-card-header>
+          <div class="w-full flex justify-between items-center gap-4">
+            <div class="flex flex-col gap-2">
+              <span class="block text-gray-500">Comments</span>
+              <span class="text-xl">152 Unread</span>
+            </div>
+            <div
+              class="bg-red-200 rounded-md w-10 h-10 flex items-center justify-center"
+            >
+              <i class="tdsi-chat-buble-line text-red-500 text-2xl"></i>
+            </div>
+          </div>
+        </tds-card-header>
+        <tds-card-content class="text-start">
+          <span class="text-red-500 font-blod mr-1">85</span>
+          <span>responded</span>
+        </tds-card-content>
+      </tds-card>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-12 gap-4 justify-between">
+    <div class="col-span-12 md:col-span-6 p-0">
+      <tds-card>
+        <tds-card-header>
+          <div class="flex justify-between items-center gap-2">
+            <span>Recent Sales</span>
+          </div>
+        </tds-card-header>
+        <tds-card-content>
+          <tds-table #basicTable [listData]="listOfData">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>company</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-template ngFor let-data [ngForOf]="basicTable.data">
+                <tr>
+                  <td>{{ data.name }}</td>
+                  <td>{{ data.age }}</td>
+                  <td>{{ data.company }}</td>
+                  <td>
+                    <button
+                      tds-button-flat-icon
+                      color="error"
+                      class="rounded-full"
+                    >
+                      <i class="tdsi-search-line"></i>
+                    </button>
+                  </td>
+                </tr>
+              </ng-template>
+            </tbody>
+          </tds-table>
+        </tds-card-content>
+      </tds-card>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 p-0">
+      <tds-card>
+        <tds-card-header>
+          <div class="flex justify-between items-center gap-2">
+            <span>Best Selling Products</span>
+            <button
+              tds-button-flat-icon
+              tds-dropdown
+              [tdsDropdownMenu]="dropdownMore"
+              trigger="click"
+              color="error"
+              class="rounded-full"
+            >
+              <i class="tdsi-three-dots-vertical-fill"></i>
+            </button>
+
+            <tds-dropdown-menu #dropdownMore="tdsDropdownMenu">
+              <div class="w-56">
+                <div tds-dropdown-item>
+                  <a class="">Add New</a>
+                </div>
+                <div tds-dropdown-item>
+                  <a class="">Remove</a>
+                </div>
+              </div>
+            </tds-dropdown-menu>
+          </div>
+        </tds-card-header>
+        <tds-card-content>
+          <div class="flex flex-col gap-6">
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div class="flex flex-col gap-2">
+                <span class="font-bold">Portal Sticker</span>
+                <span>Accessories</span>
+              </div>
+              <div class="mt-2 md:mt-0 flex items-center">
+                <div
+                  class="bg-gray-300 dark:bg-gray-500 rounded-border overflow-hidden w-40 lg:w-24"
+                  style="height: 8px"
+                >
+                  <div class="bg-red-500 h-full" style="width: 16%"></div>
+                </div>
+                <span class="text-red-500 ml-4 font-medium">%16</span>
+              </div>
+            </div>
+
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div class="flex flex-col gap-2">
+                <span class="font-bold">Supernova Sticker</span>
+                <span>Accessories</span>
+              </div>
+              <div class="mt-2 md:mt-0 flex items-center">
+                <div
+                  class="bg-gray-300 dark:bg-gray-500 rounded-border overflow-hidden w-40 lg:w-24"
+                  style="height: 8px"
+                >
+                  <div class="bg-red-500 h-full" style="width: 67%"></div>
+                </div>
+                <span class="text-red-500 ml-4 font-medium">%67</span>
+              </div>
+            </div>
+
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div class="flex flex-col gap-2">
+                <span class="font-bold">Wonders Notebook</span>
+                <span>Office</span>
+              </div>
+              <div class="mt-2 md:mt-0 flex items-center">
+                <div
+                  class="bg-gray-300 dark:bg-gray-500 rounded-border overflow-hidden w-40 lg:w-24"
+                  style="height: 8px"
+                >
+                  <div class="bg-red-500 h-full" style="width: 35%"></div>
+                </div>
+                <span class="text-red-500 ml-4 font-medium">%35</span>
+              </div>
+            </div>
+
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div class="flex flex-col gap-2">
+                <span class="font-bold">Mat Black Case</span>
+                <span>Accessories</span>
+              </div>
+              <div class="mt-2 md:mt-0 flex items-center">
+                <div
+                  class="bg-gray-300 dark:bg-gray-500 rounded-border overflow-hidden w-40 lg:w-24"
+                  style="height: 8px"
+                >
+                  <div class="bg-red-500 h-full" style="width: 75%"></div>
+                </div>
+                <span class="text-red-500 ml-4 font-medium">%75</span>
+              </div>
+            </div>
+
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div class="flex flex-col gap-2">
+                <span class="font-bold">Robots T-Shirt</span>
+                <span>Clothing</span>
+              </div>
+              <div class="mt-2 md:mt-0 flex items-center">
+                <div
+                  class="bg-gray-300 dark:bg-gray-500 rounded-border overflow-hidden w-40 lg:w-24"
+                  style="height: 8px"
+                >
+                  <div class="bg-red-500 h-full" style="width: 40%"></div>
+                </div>
+                <span class="text-red-500 ml-4 font-medium">%40</span>
+              </div>
+            </div>
+          </div>
+        </tds-card-content>
+      </tds-card>
+    </div>
+  </div>
+</div>

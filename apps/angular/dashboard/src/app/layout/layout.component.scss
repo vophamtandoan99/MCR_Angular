@@ -1,0 +1,16 @@
+.common-layout-content {
+  flex: 1 1 auto;
+  overflow: hidden;
+  .content {
+    height: calc(100vh - (var(--tds-header-min-height) + 3rem)) !important;
+    max-height: calc(100vh - (var(--tds-header-min-height) + 3rem)) !important;
+    overflow: auto;
+  }
+}
+
+.vertical-content {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}

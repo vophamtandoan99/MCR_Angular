@@ -1,0 +1,49 @@
+<tds-header
+  urlLogoText="https://tmt-files.tweb.page/download/wipix-img/ebnpjdp29zercaoo/2025/11/21/6e031b9f-af3b-4d14-b3f9-b37fca39afaf/logo-tmt.svg"
+  urlLogo="https://tmt-files.tweb.page/download/wipix-img/ebnpjdp29zercaoo/2025/11/21/6e031b9f-af3b-4d14-b3f9-b37fca39afaf/logo-tmt.svg"
+>
+  <div class="inline-flex tds-header-toolbar-left items-center">
+    <div class="flex items-center text-body-2 font-semibold text-neutral-1-400">
+      <tds-breadcrumb>
+        <tds-breadcrumb-item>Dasboard</tds-breadcrumb-item>
+        <tds-breadcrumb-item>Page 1</tds-breadcrumb-item>
+        <tds-breadcrumb-item>Detail</tds-breadcrumb-item>
+      </tds-breadcrumb>
+    </div>
+  </div>
+
+  <div class="inline-flex tds-header-toolbar-right items-center">
+    <div class="inline-flex pl-4">
+      <tds-avatar
+        class="cursor-pointer"
+        tds-dropdown
+        [tdsDropdownMenu]="dropdownAvatar"
+        trigger="click"
+        [tdsSrc]="'../../../../../assets/images/user.jpg'"
+      >
+      </tds-avatar>
+      <tds-dropdown-menu #dropdownAvatar="tdsDropdownMenu">
+        <div class="w-56">
+          <div tds-dropdown-item>
+            <div class="flex w-full">
+              <tds-avatar
+                [shape]="'square'"
+                tdsSrc="../../../../../assets/images/user.jpg"
+              >
+              </tds-avatar>
+              <div class="flex flex-auto flex-col ml-2">
+                <div class="text-body-2 font-semibold">{{ userEmail }}</div>
+                <div class="text-neutral-1-600 text-caption-1 font-regular">
+                  Admin
+                </div>
+              </div>
+            </div>
+          </div>
+          <div tds-dropdown-item>
+            <a class="text-error-400" (click)="onLogout()">Đăng xuất</a>
+          </div>
+        </div>
+      </tds-dropdown-menu>
+    </div>
+  </div>
+</tds-header>

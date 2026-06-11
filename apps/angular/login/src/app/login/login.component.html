@@ -1,0 +1,111 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="w-full custom-card">
+      <tds-card class="card-border">
+        <tds-card-header>
+          <div class="flex flex-col gap-2 justify-center items-center pt-4">
+            <img
+              class="h-20 w-30"
+              src="https://tmt-files.tweb.page/download/wipix-img/ebnpjdp29zercaoo/2025/11/21/6e031b9f-af3b-4d14-b3f9-b37fca39afaf/logo-tmt.svg"
+              alt="logo-login"
+            />
+            <span class="text-xl"> Welcome to TMT! </span>
+            <small class="text-gray-600"> Sign in to continue </small>
+          </div>
+        </tds-card-header>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <tds-card-content>
+            <div class="flex justify-center w-full">
+              <div class="w-9/12 flex flex-col gap-6">
+                <tds-form-field class="w-full">
+                  <tds-label>Email</tds-label>
+                  <input
+                    autocomplete="off"
+                    tdsInput
+                    placeholder="pat@example.com"
+                    formControlName="email"
+                    [required]="true"
+                  />
+                  <tds-error
+                    *ngIf="
+                      (f['email'].touched || submitted) && f['email'].errors
+                    "
+                  >
+                    <small *ngIf="f['email'].errors['required']"
+                      >Email không được để trống.</small
+                    >
+                    <small *ngIf="f['email'].errors['email']"
+                      >Email không đúng định dạng.</small
+                    >
+                  </tds-error>
+                </tds-form-field>
+
+                <tds-form-field class="full">
+                  <tds-label>Password</tds-label>
+                  <input
+                    autocomplete="off"
+                    tdsInput
+                    placeholder="••••••••"
+                    formControlName="password"
+                    [required]="true"
+                    [type]="isShowPassword ? 'text' : 'password'"
+                  />
+                  <span tdsSuffix (click)="onTogglePassword()">
+                    <i
+                      [ngClass]="
+                        isShowPassword ? 'tdsi-eye-off-line' : 'tdsi-eye-fill'
+                      "
+                    ></i>
+                  </span>
+                  <tds-error
+                    *ngIf="
+                      (f['password'].touched || submitted) &&
+                      f['password'].errors
+                    "
+                  >
+                    <small *ngIf="f['password'].errors['required']"
+                      >Mật khẩu không được để trống.</small
+                    >
+                    <small *ngIf="f['password'].errors['minlength']"
+                      >Mật khẩu phải từ 6 ký tự trở lên.</small
+                    >
+                  </tds-error>
+                </tds-form-field>
+
+                <div class="full">
+                  <div class="flex items-center justify-between gap-2">
+                    <tds-checkbox [checked]="false" [disabled]="true">
+                      Remember me
+                    </tds-checkbox>
+                    <span>Forgot password?</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tds-card-content>
+
+          <tds-card-actions>
+            <div
+              class="flex justify-center items-center flex-col w-full gap-6 py-8"
+            >
+              <button tds-button color="error" class="w-9/12" type="submit">
+                Sign In
+              </button>
+
+              <button
+                tds-button-flat
+                color="secondary"
+                class="w-9/12"
+                type="button"
+                (click)="onBackToHome()"
+              >
+                Back to Home
+              </button>
+            </div>
+          </tds-card-actions>
+        </form>
+      </tds-card>
+    </div>
+  </div>
+</div>

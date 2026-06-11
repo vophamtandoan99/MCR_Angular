@@ -16,10 +16,18 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/angular/shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
+        "allowedCommonJsDependencies": ["react-dom", "react"],
         "assets": [
+          "apps/angular/shell/src/assets",
           {
             "glob": "**/*",
-            "input": "apps/angular/shell/public"
+            "input": "apps/angular/shell/public",
+            "output": "/"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/assets",
+            "output": "assets"
           }
         ],
         "styles": ["apps/angular/shell/src/styles.scss"],

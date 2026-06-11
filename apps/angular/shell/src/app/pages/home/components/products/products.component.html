@@ -1,0 +1,63 @@
+<div id="pricing" class="py-6 px-6 lg:px-20 my-2 md:my-6">
+  <div class="text-center mb-6">
+    <div class="text-gray-900 dark:text-gray-0 font-normal mb-2 text-4xl">
+      Matchless Pricing
+    </div>
+    <span class="text-muted-color text-2xl text-gray-500 dark:text-gray-0">
+      Amet consectetur adipiscing elit...
+    </span>
+  </div>
+
+  <div class="grid grid-cols-12 gap-4 justify-between mt-20 md:mt-0">
+    <div
+      *ngFor="let item of datas"
+      class="col-span-12 lg:col-span-4 p-0 md:p-4"
+    >
+      <div class="w-ful">
+        <tds-card class="p-4 hover:border hover:border-red-500">
+          <tds-card-header
+            class="flex flex-col gap-2 justify-center items-center"
+          >
+            <span class="text-2xl"> {{ item.header }} </span>
+
+            <div class="flex justify-center w-full">
+              <img
+                class="w-full"
+                src="{{ item.img }}"
+                alt="{{ item.header }}"
+              />
+            </div>
+
+            <div class="mt-4 flex flex-col items-center gap-4">
+              <div class="flex items-center">
+                <span
+                  class="text-4xl font-bold mr-2 text-surface-900 dark:text-surface-0"
+                >
+                  {{ item.price }}
+                </span>
+                <span class="text-surface-600 dark:text-surface-200">
+                  per month
+                </span>
+              </div>
+
+              <button tds-button color="error" class="rounded-full">
+                Get Started
+              </button>
+            </div>
+          </tds-card-header>
+
+          <tds-card-content>
+            <tds-list>
+              <tds-list-item *ngFor="let note of item.notes">
+                <span tds-typography>
+                  <i class="tdsi-check-fill text-blue-500 mr-2"></i>
+                  {{ note }}
+                </span>
+              </tds-list-item>
+            </tds-list>
+          </tds-card-content>
+        </tds-card>
+      </div>
+    </div>
+  </div>
+</div>

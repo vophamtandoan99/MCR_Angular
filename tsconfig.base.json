@@ -13,15 +13,13 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "admin/Module": ["apps/react/admin/src/remote-entry.ts"],
-      "dashboard/Routes": [
-        "apps/angular/dashboard/src/app/remote-entry/entry.routes.ts"
-      ],
-      "login/Routes": [
-        "apps/angular/login/src/app/remote-entry/entry.routes.ts"
-      ]
+      "@mcro/auth": ["./libs/shared/auth/src/index.ts"],
+      "@mcro/data-access": ["./libs/dashboard-domain/data-access/src/index.ts"],
+      "@mcro/features": ["./libs/dashboard-domain/features/src/index.ts"],
+      "@mcro/ui": ["./libs/shared/ui/src/index.ts"],
+      "@mcro/styles": ["./libs/shared/styles/index.scss"],
     }
   },
   "exclude": ["node_modules", "tmp"]
